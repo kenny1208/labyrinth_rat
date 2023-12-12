@@ -1,0 +1,39 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EE806B20-7B6F-44CC-B859-3A2339A3BFA4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Project2.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\HW4_11160801_陳禹豪-2 - 複製\Project2.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Project2">
+        <MSBuild Projects="..\HW4_11160801_陳禹豪-2 - 複製\Project2.cbproj"/>
+    </Target>
+    <Target Name="Project2:Clean">
+        <MSBuild Projects="..\HW4_11160801_陳禹豪-2 - 複製\Project2.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project2:Make">
+        <MSBuild Projects="..\HW4_11160801_陳禹豪-2 - 複製\Project2.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Project2;Project2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Project2:Clean;Project2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Project2:Make;Project2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
